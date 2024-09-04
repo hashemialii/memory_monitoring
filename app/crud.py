@@ -24,3 +24,17 @@ def get_last_n_records(n):
         """, (n,))
         rows = cursor.fetchall()
         return rows
+
+
+def clear_memory_info():
+    # حذف کردن تمام رکوردها از جدول memory_info
+    with get_db() as conn:
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM memory_info")
+        conn.commit()
+
+    # اجرای VACUUM برای بازنشانی IDها به 1
+    with get_db() as conn:
+        cursor = conn.cursor()
+        cursor.execute("VACUUM")
+        conn.commit()

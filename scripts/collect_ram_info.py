@@ -10,7 +10,7 @@ def collect_ram_info():
         free = memory.available // (1024 ** 2)
         used = total - free
         insert_memory_info(total, free, used)
-        time.sleep(60)
+        time.sleep(2)
 
 
 if __name__ == "__main__":
