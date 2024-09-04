@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 class MemoryInfo(BaseModel):
     id: int
-    timestamp: int
+    timestamp: str
     total: int
     free: int
     used: int

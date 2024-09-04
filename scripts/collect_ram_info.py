@@ -15,5 +15,3 @@ def collect_ram_info():
 
 if __name__ == "__main__":
     collect_ram_info()
-
-
