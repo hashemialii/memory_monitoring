@@ -10,3 +10,4 @@ class MemoryInfo(BaseModel):
 
     class Config:
         from_attributes = True
+

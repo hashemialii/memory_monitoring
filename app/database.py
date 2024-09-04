@@ -19,7 +19,7 @@ def create_tables():
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS memory_info (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                timestamp INTEGER NOT NULL,
+                timestamp TEXT NOT NULL,
                 total INTEGER NOT NULL,
                 free INTEGER NOT NULL,
                 used INTEGER NOT NULL
