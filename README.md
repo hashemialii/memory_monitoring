@@ -36,34 +36,18 @@ This project is a system for monitoring system memory usage using Python and Fas
 
 ## Usage
 
-1. **Run the RAM monitoring script:**
+1. **Run the combined setup and monitoring script:**
 
-    This script collects memory usage data every 2 seconds and stores it in the database.
-
-    ```bash
-    python -m scripts.collect_ram_info
-    ```
-
-2. **Start the FastAPI server:**
-
-    This server provides an API to access the stored memory data.
+    This script will start both the RAM monitoring script and the FastAPI server.
 
     ```bash
-    uvicorn app.main:app --reload
-    ```
-
-3. **Run the setup and cleanup script (optional):**
-
-    This script sets up the database tables and performs cleanup operations.
-
-    ```bash
-    python scripts/run_project.py
+    python run_project.py
     ```
 
 ## Scripts
 
+- `run_project.py`: Starts both the RAM monitoring script and the FastAPI server.
 - `scripts/collect_ram_info.py`: Collects and inserts memory usage data into the database.
-- `scripts/run_project.py`: Runs the RAM monitoring script and the FastAPI server.
 - `scripts/create_tables.py`: Sets up the database tables.
 
 ## Example API Endpoints
