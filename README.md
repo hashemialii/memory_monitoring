@@ -61,4 +61,4 @@ Feel free to open issues or submit pull requests if you have suggestions or impr
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is not currently licensed under any specific open-source license. Please contact the project owner for more details.
