@@ -27,3 +27,10 @@ def create_tables():
         """)
         conn.commit()
 
+
+def reset_autoincrement():
+    """Reset the AUTOINCREMENT counter for the memory_info table."""
+    with get_db() as conn:
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM sqlite_sequence WHERE name='memory_info'")
+        conn.commit()

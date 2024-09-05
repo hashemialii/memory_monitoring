@@ -36,6 +36,7 @@ def main():
     command2 = 'uvicorn app.main:app --reload'
 
     # Run the commands in separate terminals
+    print(f"The database is located at: {project_dir}")
     run_in_new_terminal(command1)
     time.sleep(2)  # Sleep to ensure the first terminal starts properly
     run_in_new_terminal(command2)

@@ -1,5 +1,5 @@
 from datetime import datetime
-from app.database import get_db
+from app.database import get_db, reset_autoincrement
 
 
 def insert_memory_info(total, free, used):
@@ -31,3 +31,5 @@ def clear_memory_info():
         cursor = conn.cursor()
         cursor.execute("DELETE FROM memory_info")
         conn.commit()
+    # Reset AUTOINCREMENT counter after clearing the table
+    reset_autoincrement()
