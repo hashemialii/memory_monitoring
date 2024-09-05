@@ -1,11 +1,11 @@
 import subprocess
 import os
 import time
+from app.database import DATABASE_NAME
 
 
 def run_in_new_terminal(command, cwd=None):
     """Runs a command in a new terminal window."""
-    # Use `start` to open a new Command Prompt on Windows
     subprocess.Popen(f'start cmd /k "{command}"', cwd=cwd, shell=True)
 
 
@@ -20,8 +20,9 @@ def check_and_create_database(db_path, create_script):
 
 
 def main():
-    project_dir = r"C:\Users\aliha\PycharmProjects\memory_test"
-    db_path = os.path.join(project_dir, "memory_info.db")
+    # Automatically get the project directory
+    project_dir = os.path.dirname(os.path.abspath(__file__))
+    db_path = os.path.join(project_dir, DATABASE_NAME)  # Use DATABASE_NAME from database.py
     create_script = 'scripts.create_tables'
 
     # Change the current working directory
