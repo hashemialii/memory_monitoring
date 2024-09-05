@@ -21,7 +21,7 @@ def get_last_n_records(n):
             FROM memory_info
             ORDER BY timestamp DESC
             LIMIT ?
-        """, (n,))
+        """, [n])
         rows = cursor.fetchall()
         return rows
 

@@ -3,23 +3,25 @@ from typing import List
 from app.crud import get_last_n_records, clear_memory_info
 from app.models import MemoryInfo
 from app.database import create_tables
-from contextlib import asynccontextmanager
 
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    # Actions to run on startup
-    clear_memory_info()  # Clear the database to reset ID to 1
+def lifespan():
+    clear_memory_info()
     create_tables()      # Create tables again (if not already exists)
-    yield
-    # Actions to run on shutdown (if any)
 
-app = FastAPI(lifespan=lifespan)
+
+app = FastAPI(on_startup=[lifespan])
 
 
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to the RAM monitoring API"}
+    return {
+        "message": [
+            "Welcome to the RAM monitoring API",
+            "If you would like to try it, visit:",
+            "http://127.0.0.1:8000/memory/?n=10"
+        ]
+    }
 
 
 @app.get("/memory/", response_model=List[MemoryInfo])
