@@ -32,13 +32,13 @@ def main():
     check_and_create_database(db_path, create_script)
 
     # Define the commands
-    command1 = 'python -m scripts.collect_ram_info'
+    # command1 = 'python -m scripts.collect_ram_info'
     command2 = 'uvicorn app.main:app --reload'
 
     # Run the commands in separate terminals
     print(f"The database is located at: {project_dir}")
-    run_in_new_terminal(command1)
-    time.sleep(2)  # Sleep to ensure the first terminal starts properly
+    # run_in_new_terminal(command1)
+    # time.sleep(2)  # Sleep to ensure the first terminal starts properly
     run_in_new_terminal(command2)
 
 
